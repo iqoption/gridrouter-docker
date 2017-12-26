@@ -1,0 +1,6 @@
+---
+grid_router_version: 1.3.0
+grid_router_qouta_path: /etc/grid-router/quota
+grid_router_qouta_password: selenoid
+grid_router_qouta_user: selenoid
+grid_router_gr_path: /etc/grid-router

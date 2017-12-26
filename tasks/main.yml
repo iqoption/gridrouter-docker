@@ -1,0 +1,50 @@
+---
+- name: Grid Router | Installing docker-py python package
+  pip: name=docker-py
+
+- name: Grid Router | Download sctl
+  get_url:
+    url: https://github.com/seleniumkit/sctl/releases/download/sctl-1.0.0/sctl_linux_amd64
+    dest: /usr/local/bin/sctl
+    mode: 0755
+
+- name: Grid Router | Create config dir
+  file:
+    path: "{{ grid_router_qouta_path }}"
+    state: directory
+    mode: 0755
+
+- name: Grid Router | Copy input json
+  copy:
+    src: input.json
+    dest: "{{ grid_router_qouta_path }}"
+    mode: 0644
+
+- name: Grid Router | Generate quota file
+  shell: sctl generate --inputFile "{{ grid_router_qouta_path }}/input.json" --outputDirectory "{{ grid_router_qouta_path }}"
+  args:
+    creates: "{{ grid_router_qouta_path }}/selenoid.xml"
+
+- name: Grid Router | Make sure we can use htpasswd module
+  apt: "pkg=python-passlib state=installed"
+
+- name: Grid Router | Setup quota password
+  htpasswd:
+    path: "{{ grid_router_gr_path }}/users.htpasswd"
+    name: "{{ grid_router_qouta_user }}"
+    password: "{{ grid_router_qouta_password}}"
+    mode: 0640
+
+- name: Grid Router | Run Grid Router container
+  docker_container:
+    name: grid_router
+    restart_policy: always
+    image: "aerokube/ggr:{{ grid_router_version }}"
+    network_mode: host
+    state: started
+    env:
+      DOCKER_API_VERSION: "{{ grid_router_docker_api_version }}"
+    volumes:
+    - "{{ grid_router_gr_path }}:{{ grid_router_gr_path }}:ro"
+    ports:
+    - "4444:4444"

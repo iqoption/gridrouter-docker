@@ -1,0 +1,109 @@
+{
+  "hosts": {
+    "group1": {
+      "wz": {
+        "selenoid[1:50].youhost.com": {
+          "port": 4444,
+          "count": 1
+        }
+      }
+    }
+  },
+  "quota": {
+    "selenoid": {
+      "firefox": {
+        "defaultVersion": "54.0",
+        "versions": {
+          "54.0": "group1",
+          "53.0": "group1",
+          "52.0": "group1",
+          "51.0": "group1",
+          "50.0": "group1",
+          "49.0": "group1",
+          "48.0": "group1",
+          "47.0": "group1",
+          "46.0": "group1",
+          "45.0": "group1",
+          "44.0": "group1",
+          "43.0": "group1",
+          "42.0": "group1",
+          "41.0": "group1",
+          "40.0": "group1",
+          "39.0": "group1",
+          "38.0": "group1",
+          "37.0": "group1",
+          "36.0": "group1",
+          "35.0": "group1",
+          "34.0": "group1",
+          "33.0": "group1",
+          "32.0": "group1",
+          "31.0": "group1",
+          "30.0": "group1",
+          "29.0": "group1",
+          "28.0": "group1",
+          "27.0": "group1",
+          "26.0": "group1",
+          "25.0": "group1",
+          "24.0": "group1",
+          "23.0": "group1",
+          "22.0": "group1",
+          "21.0": "group1",
+          "20.0": "group1",
+          "19.0": "group1",
+          "18.0": "group1",
+          "17.0": "group1",
+          "16.0": "group1",
+          "15.0": "group1",
+          "14.0": "group1",
+          "13.0": "group1",
+          "12.0": "group1",
+          "11.0": "group1",
+          "10.0": "group1",
+          "9.0": "group1",
+          "8.0": "group1",
+          "7.0": "group1",
+          "6.0": "group1",
+          "5.0": "group1",
+          "4.0": "group1",
+          "3.6": "group1"
+        }
+      },
+      "chrome": {
+        "defaultVersion": "59.0",
+        "versions": {
+          "59.0": "group1",
+          "58.0": "group1",
+          "57.0": "group1",
+          "56.0": "group1",
+          "55.0": "group1",
+          "54.0": "group1",
+          "53.0": "group1",
+          "52.0": "group1",
+          "51.0": "group1",
+          "50.0": "group1",
+          "49.0": "group1",
+          "48.0": "group1"
+        }
+      },
+      "opera": {
+        "defaultVersion": "45.0",
+        "versions": {
+          "45.0": "group1",
+          "44.0": "group1",
+          "43.0": "group1",
+          "42.0": "group1",
+          "41.0": "group1",
+          "40.0": "group1",
+          "39.0": "group1",
+          "38.0": "group1",
+          "37.0": "group1",
+          "36.0": "group1",
+          "35.0": "group1",
+          "34.0": "group1",
+          "33.0": "group1",
+          "12.16": "group1"
+        }
+      }
+    }
+  }
+}
