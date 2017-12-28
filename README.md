@@ -18,10 +18,6 @@ Set up [GridRouter](https://github.com/aerokube/ggr) in docker
 
 Ggr is [using](http://aerokube.com/ggr/latest/#_creating_users_file) htpasswd files to store authentication data. Passwords are stored in encrypted form.
 
-## Dependencies
-
-None
-
 #### Example
 
 First step you need edit `./files/input.json`. This file help generate browser.xml
@@ -46,6 +42,10 @@ First step you need edit `./files/input.json`. This file help generate browser.x
   roles:
   - gridrouter
 ```
+
+## Dependencies
+
+None
 
 ## Contributing
 1. Fork it;
