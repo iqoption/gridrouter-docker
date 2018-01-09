@@ -1,6 +1,6 @@
 ---
-- name: Grid Router | Installing docker-py python package
-  pip: name=docker-py
+# - name: Grid Router | Installing docker-py python package
+#   pip: name=docker-py
 
 - name: Grid Router | Download sctl
   get_url:

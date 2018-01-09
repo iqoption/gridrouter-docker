@@ -23,4 +23,5 @@ script:
   - docker exec --tty ${container_id} docker run hello-world
 
 # notifications:
+#   email: false
 #   webhooks: https://galaxy.ansible.com/api/v1/notifications/
