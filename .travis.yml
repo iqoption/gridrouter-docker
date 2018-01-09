@@ -6,11 +6,14 @@ env:
   - distro: ubuntu1604
   - distro: ubuntu1404
   - distro: debian8
+  - DOCKER_COMPOSE_VERSION=1.4.2
+
+before_install:
+  - docker --version
 
 script:
   # Configure test script so we can run extra tests after playbook is run.
   - export container_id=$(date +%s)
-  - export cleanup=false
 
   # Download test shim.
   - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
@@ -18,9 +21,6 @@ script:
 
   # Run tests.
   - ${PWD}/tests/test.sh
-
-  # Test whether Docker is running correctly (Dockerception!).
-  - docker exec --tty ${container_id} docker run hello-world
 
 # notifications:
 #   email: false
