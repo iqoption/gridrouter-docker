@@ -43,8 +43,6 @@
     image: "aerokube/ggr:{{ grid_router_version }}"
     network_mode: host
     state: started
-    env:
-      DOCKER_API_VERSION: "{{ grid_router_docker_api_version }}"
     volumes:
     - "{{ grid_router_gr_path }}:{{ grid_router_gr_path }}:ro"
     ports:
