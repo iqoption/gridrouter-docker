@@ -15,8 +15,8 @@
     mode: 0755
 
 - name: Grid Router | Copy input json
-  copy:
-    src: input.json
+  template:
+    src: input.json.j2
     dest: "{{ grid_router_qouta_path }}"
     mode: 0644
 
