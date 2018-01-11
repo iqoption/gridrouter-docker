@@ -6,10 +6,6 @@ env:
   - distro: ubuntu1604
   - distro: ubuntu1404
   - distro: debian8
-  - DOCKER_COMPOSE_VERSION=1.4.2
-
-before_install:
-  - docker --version
 
 script:
   # Configure test script so we can run extra tests after playbook is run.

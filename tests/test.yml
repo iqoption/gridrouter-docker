@@ -12,5 +12,8 @@
     - name: Install test dependencies.
       package: name=python-pip state=present
 
+    - name: Install test dependencies.
+      package: name=docker.io state=present
+
   roles:
     - role_under_test
