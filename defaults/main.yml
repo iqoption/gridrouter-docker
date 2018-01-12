@@ -7,4 +7,4 @@ grid_router_gr_path: /etc/grid-router
 grid_router_docker_api_version: 1.24
 grid_router_host_list: group1
 grid_router_region: region1
-grid_router_host_name: selenoid[01:50].example.com
+grid_router_host_name: selenoid[1:10].example.com
