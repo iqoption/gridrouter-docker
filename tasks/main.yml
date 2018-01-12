@@ -14,14 +14,14 @@
     state: directory
     mode: 0755
 
-- name: Grid Router | Copy input json
-  copy:
-    src: input.json
-    dest: "{{ grid_router_qouta_path }}"
+- name: Grid Router | Copy quota json template
+  template:
+    src: quota_template.json.j2
+    dest: "{{ grid_router_qouta_path }}/quota_template.json"
     mode: 0644
 
 - name: Grid Router | Generate quota file
-  shell: sctl generate --inputFile "{{ grid_router_qouta_path }}/input.json" --outputDirectory "{{ grid_router_qouta_path }}"
+  shell: sctl generate --inputFile "{{ grid_router_qouta_path }}/quota_template.json" --outputDirectory "{{ grid_router_qouta_path }}"
   args:
     creates: "{{ grid_router_qouta_path }}/selenoid.xml"
 
