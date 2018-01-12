@@ -17,7 +17,7 @@
 - name: Grid Router | Copy quota json template
   template:
     src: quota_template.json.j2
-    dest: "{{ grid_router_qouta_path }}"
+    dest: "{{ grid_router_qouta_path }}/quota_template.json"
     mode: 0644
 
 - name: Grid Router | Generate quota file
