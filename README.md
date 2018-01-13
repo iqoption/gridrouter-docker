@@ -15,26 +15,13 @@ Set up [GridRouter](https://github.com/aerokube/ggr) in docker
 * `grid_router_qouta_user`: [Default: `selenoid`] GridRouter quota user
 * `grid_router_gr_path`: [Default: `/etc/grid-router`] Path to GridRouter
 * `grid_router_docker_api_version`: [Default: `1.24`] Docker api version (for GridRouter)
+* `grid_router_host_list`: [Default: `group1`]
+* `grid_router_region`: [Default: `region1`]
+* `grid_router_host_name`: [Default: `selenoid[1:10].example.com`] Hostname selenoid
 
 Ggr is [using](http://aerokube.com/ggr/latest/#_creating_users_file) htpasswd files to store authentication data. Passwords are stored in encrypted form.
 
 #### Example
-
-First step you need edit `./files/input.json`. This file help generate browser.xml
-
-```
-"group1": {
-  "wz": {
-    "selenoid[1:50].youhost.com": {
-      "port": 4444,
-      "count": 1
-    }
-  }
-```
-
-1. Change `group1` you name group host;
-2. Change host (or use many hosts);
-3. Change group in quota browser block (use name group from 1 step).
 
 ```yaml
 ---
