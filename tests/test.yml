@@ -1,8 +1,6 @@
 ---
 - hosts: all
-  roles:
-    - role: 'gridrouter-ansible'
-      become: yes
+
   pre_tasks:
     - name: Update apt cache.
       apt: update_cache=yes cache_valid_time=600
@@ -13,3 +11,6 @@
 
     - name: Install test dependencies.
       package: name=python-pip state=present
+
+  roles:
+    - role_under_test
