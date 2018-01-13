@@ -18,6 +18,6 @@ script:
   # Run tests.
   - ${PWD}/tests/test.sh
 
-# notifications:
-#   email: false
-#   webhooks: https://galaxy.ansible.com/api/v1/notifications/
+notifications:
+  email: false
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
