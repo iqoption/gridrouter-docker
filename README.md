@@ -9,7 +9,7 @@ Set up [GridRouter](https://github.com/aerokube/ggr) in docker
 
 #### Variables
 
-* `grid_router_version`: [Default: `1.3.0`] Install GridRouter version
+* `grid_router_version`: [Default: `1.4.0`] Install GridRouter version
 * `grid_router_qouta_path`: [Default: `/etc/grid-router/quota`] Path to GridRouter quota
 * `grid_router_qouta_password`: [Default: `selenoid`] GridRouter quota password
 * `grid_router_qouta_user`: [Default: `selenoid`] GridRouter quota user
