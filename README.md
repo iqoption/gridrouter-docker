@@ -20,6 +20,7 @@ Set up [GridRouter](https://github.com/aerokube/ggr) in docker
 * `grid_router_host_list`: [Default: `group1`]
 * `grid_router_region`: [Default: `region1`]
 * `grid_router_host_name`: [Default: `selenoid[1:10].example.com`] Hostname selenoid
+* `grid_router_time_zone`: [Default: `Europe/Moscow`] Timezone in container
 
 Ggr is [using](http://aerokube.com/ggr/latest/#_creating_users_file) htpasswd files to store authentication data. Passwords are stored in encrypted form.
 
