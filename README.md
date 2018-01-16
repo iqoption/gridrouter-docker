@@ -15,10 +15,12 @@ Set up [GridRouter](https://github.com/aerokube/ggr) in docker
 * `grid_router_qouta_password`: [Default: `selenoid`] GridRouter quota password
 * `grid_router_qouta_user`: [Default: `selenoid`] GridRouter quota user
 * `grid_router_gr_path`: [Default: `/etc/grid-router`] Path to GridRouter
+* `grid_router_port`: [Default: `4444`] GridRouter port
 * `grid_router_docker_api_version`: [Default: `1.24`] Docker api version (for GridRouter)
 * `grid_router_host_list`: [Default: `group1`]
 * `grid_router_region`: [Default: `region1`]
 * `grid_router_host_name`: [Default: `selenoid[1:10].example.com`] Hostname selenoid
+* `grid_router_time_zone`: [Default: `Europe/Moscow`] Timezone in container
 
 Ggr is [using](http://aerokube.com/ggr/latest/#_creating_users_file) htpasswd files to store authentication data. Passwords are stored in encrypted form.
 

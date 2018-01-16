@@ -45,5 +45,8 @@
     state: started
     volumes:
     - "{{ grid_router_gr_path }}:{{ grid_router_gr_path }}:ro"
+    env:
+      TZ: "{{ grid_router_time_zone }}"
+      DOCKER_API_VERSION: "{{ grid_router_docker_api_version }}"
     ports:
-    - "4444:4444"
+    - "{{ grid_router_port }}:{{ grid_router_port }}"
