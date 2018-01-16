@@ -1,6 +1,10 @@
 ---
-- name: Grid Router | Installing docker-py python package
-  pip: name=docker-py
+- name: Grid Router | Install certain python modules for docker
+  pip:
+    name: "{{ item.name }}"
+  with_items:
+  - { name: docker-py }
+  - { name: passlib }
 
 - name: Grid Router | Download sctl
   get_url:
@@ -25,9 +29,6 @@
   args:
     creates: "{{ grid_router_qouta_path }}/selenoid.xml"
 
-- name: Grid Router | Make sure we can use htpasswd module
-  apt: "pkg=python-passlib state=installed"
-
 - name: Grid Router | Setup quota password
   htpasswd:
     path: "{{ grid_router_gr_path }}/users.htpasswd"
@@ -42,8 +43,6 @@
     image: "aerokube/ggr:{{ grid_router_version }}"
     network_mode: host
     state: started
-    env:
-      DOCKER_API_VERSION: "{{ grid_router_docker_api_version }}"
     volumes:
     - "{{ grid_router_gr_path }}:{{ grid_router_gr_path }}:ro"
     ports:

@@ -7,3 +7,18 @@ galaxy_info:
   - name: Ubuntu
     versions:
     - 16.04
+  - name: EL
+    versions:
+    - 6
+  - name: Debian
+    versions:
+    - jessie
+  - name: Ubuntu
+    versions:
+    - trusty
+    - xenial
+  galaxy_tags:
+    - containers
+    - docker
+    - selenoid
+    - gridrouter
