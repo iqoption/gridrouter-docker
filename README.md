@@ -1,4 +1,5 @@
 ## GridRouter in docker
+[![Build Status](https://travis-ci.org/iqoption/gridrouter-docker.svg?branch=add-travis)](https://travis-ci.org/iqoption/gridrouter-docker)
 
 Set up [GridRouter](https://github.com/aerokube/ggr) in docker
 
