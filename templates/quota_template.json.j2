@@ -13,7 +13,7 @@
     "selenoid": {
       {% for browser in grid_router_browsers -%}
          "{{ browser.name }}": {
-            "defaultVersion": {{ browser.defaultVersion }},
+            "defaultVersion": "{{ browser.defaultVersion }}",
             "versions": {
             {% for version in browser.versions -%}
                 "{{ version }}": "{{ grid_router_host_list }}"{%- if not loop.last -%},{%- endif -%}
