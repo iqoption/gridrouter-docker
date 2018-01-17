@@ -22,6 +22,30 @@ Set up [GridRouter](https://github.com/aerokube/ggr) in docker
 * `grid_router_region`: [Default: `region1`]
 * `grid_router_host_name`: [Default: `selenoid[1:10].example.com`] Hostname selenoid
 * `grid_router_time_zone`: [Default: `Europe/Moscow`] Timezone in container
+* `grid_router_browsers`: This array include usage browsers
+
+You can override collection browsers `grid_router_browsers` according to your needs.
+For example:
+```yaml
+grid_router_browsers:
+    - name: "firefox"
+      defaultVersion: "54.0"
+      versions:
+        - "54.0"
+        - "53.0"
+    - name: "chrome"
+      defaultVersion: "59.0"
+      versions:
+        - "59.0"
+        - "58.0"
+    - name: "opera"
+      defaultVersion: "45.0"
+      versions:
+        - "45.0"
+        - "44.0"
+```
+
+All supported browsers see [here](https://github.com/aerokube/selenoid#ready-to-use-browser-images).
 
 Ggr is [using](http://aerokube.com/ggr/latest/#_creating_users_file) htpasswd files to store authentication data. Passwords are stored in encrypted form.
 

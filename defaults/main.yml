@@ -12,30 +12,21 @@ grid_router_host_name: selenoid[1:10].example.com
 grid_router_time_zone: Europe/Moscow
 
 grid_router_browsers:
-    - name: "firefox"
-      defaultVersion: "54.0"
-      versions:
-        - "54.0"
-        - "53.0"
-        - "52.0"
-        - "51.0"
-        - "50.0"
-        - "49.0"
-    - name: "chrome"
-      defaultVersion: "59.0"
-      versions:
-        - "59.0"
-        - "58.0"
-        - "57.0"
-        - "56.0"
-        - "55.0"
-        - "54.0"
-    - name: "opera"
-      defaultVersion: "45.0"
-      versions:
-        - "45.0"
-        - "44.0"
-        - "43.0"
-        - "42.0"
-        - "41.0"
-        - "40.0"
+  - name: "firefox"
+    defaultVersion: "54.0"
+    versions:
+      - "54.0"
+      - "53.0"
+      - "52.0"
+  - name: "chrome"
+    defaultVersion: "59.0"
+    versions:
+      - "59.0"
+      - "58.0"
+      - "57.0"
+  - name: "opera"
+    defaultVersion: "45.0"
+    versions:
+      - "45.0"
+      - "44.0"
+      - "43.0"
