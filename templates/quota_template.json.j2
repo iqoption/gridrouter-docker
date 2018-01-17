@@ -11,22 +11,16 @@
   },
   "quota": {
     "selenoid": {
-      {% for browser in grid_router_browsers %}
+      {% for browser in grid_router_browsers -%}
          "{{ browser.name }}": {
             "defaultVersion": {{ browser.defaultVersion }},
             "versions": {
-                 {% for version in browser.versions %}
-                   "{{ version }}": "{{ grid_router_host_list }}"
-                   {%- if not loop.last -%}
-                     ,
-                   {%- endif -%}
-                 {%- endfor -%}
+            {% for version in browser.versions -%}
+                "{{ version }}": "{{ grid_router_host_list }}"{%- if not loop.last -%},{%- endif -%}
+            {%- endfor %}
             }
-         }
-        {%- if not loop.last -%}
-          ,
-        {%- endif -%}
-        {% endfor %}
+         }{%- if not loop.last -%},{%- endif -%}
+        {%- endfor %}
     }
   }
 }
