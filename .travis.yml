@@ -25,9 +25,9 @@ script:
   - ansible-playbook -v --diff tests/role.yml
   - >
     ansible-playbook tests/role.yml
-    | grep -q 'changed=0.*failed=0'
-    && (echo 'Idempotence test: pass' && exit 0)
-    || (echo 'Idempotence test: fail' && exit 1)
+    | grep -q 'failed=0'
+    && (echo 'Failed test: pass' && exit 0)
+    || (echo 'Failed test: fail' && exit 1)
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
