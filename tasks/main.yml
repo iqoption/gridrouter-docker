@@ -8,7 +8,7 @@
 
 - name: Grid Router | Download sctl
   get_url:
-    url: https://github.com/seleniumkit/sctl/releases/download/sctl-1.0.0/sctl_linux_amd64
+    url: "https://github.com/seleniumkit/sctl/releases/download/{{ grid_router_sctl_version }}/sctl_linux_amd64"
     dest: /usr/local/bin/sctl
     mode: 0755
 
@@ -26,8 +26,6 @@
 
 - name: Grid Router | Generate quota file
   shell: sctl generate --inputFile "{{ grid_router_qouta_path }}/quota_template.json" --outputDirectory "{{ grid_router_qouta_path }}"
-  args:
-    creates: "{{ grid_router_qouta_path }}/selenoid.xml"
 
 - name: Grid Router | Setup quota password
   htpasswd:

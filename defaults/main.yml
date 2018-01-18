@@ -5,6 +5,7 @@ grid_router_qouta_password: selenoid
 grid_router_qouta_user: selenoid
 grid_router_gr_path: /etc/grid-router
 grid_router_port: 4444
+grid_router_sctl_version: 1.2.0
 grid_router_docker_api_version: 1.24
 grid_router_host_list: group1
 grid_router_region: region1

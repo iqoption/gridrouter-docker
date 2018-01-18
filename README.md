@@ -17,6 +17,7 @@ Set up [GridRouter](https://github.com/aerokube/ggr) in docker
 * `grid_router_qouta_user`: [Default: `selenoid`] GridRouter quota user
 * `grid_router_gr_path`: [Default: `/etc/grid-router`] Path to GridRouter
 * `grid_router_port`: [Default: `4444`] GridRouter port
+* `grid_router_sctl_version`: [Default: `1.2.0`] [sctl](https://github.com/seleniumkit/sctl/releases) version
 * `grid_router_docker_api_version`: [Default: `1.24`] Docker api version (for GridRouter)
 * `grid_router_host_list`: [Default: `group1`]
 * `grid_router_region`: [Default: `region1`]
