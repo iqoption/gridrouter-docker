@@ -11,19 +11,39 @@ Set up [GridRouter](https://github.com/aerokube/ggr) in docker
 
 #### Variables
 
-* `grid_router_version`: [Default: `1.4.0`] Install GridRouter version
-* `grid_router_qouta_path`: [Default: `/etc/grid-router/quota`] Path to GridRouter quota
-* `grid_router_qouta_password`: [Default: `selenoid`] GridRouter quota password
-* `grid_router_qouta_user`: [Default: `selenoid`] GridRouter quota user
-* `grid_router_gr_path`: [Default: `/etc/grid-router`] Path to GridRouter
-* `grid_router_port`: [Default: `4444`] GridRouter port
-* `grid_router_sctl_version`: [Default: `1.2.0`] [sctl](https://github.com/seleniumkit/sctl/releases) version
-* `grid_router_docker_api_version`: [Default: `1.24`] Docker api version (for GridRouter)
-* `grid_router_host_list`: [Default: `group1`]
-* `grid_router_region`: [Default: `region1`]
-* `grid_router_host_name`: [Default: `selenoid[1:10].example.com`] Hostname selenoid
-* `grid_router_time_zone`: [Default: `Europe/Moscow`] Timezone in container
-* `grid_router_browsers`: This array include usage browsers
+```yaml
+grid_router_version: 1.4.0 # Install GridRouter version
+grid_router_path: /etc/grid-router # Path to GridRouter
+grid_router_qouta_path: /etc/grid-router/quota # Path to GridRouter quota
+grid_router_qouta_user: selenoid # GridRouter quota user
+grid_router_qouta_password: selenoid # GridRouter quota password
+grid_router_time_zone: Europe/Moscow # Timezone in container
+grid_router_port: 4444 # GridRouter port
+grid_router_sctl_version: 1.2.0 # sctl version — https://github.com/seleniumkit/sctl/releases
+grid_router_docker_api_version: 1.24 # Docker api version (for GridRouter)
+grid_router_host_list: group # Host list for selenoid.xml
+grid_router_region: region # Region for selenoid.xml
+grid_router_host_name: selenoid[01:10].example.com # Host selenoid for selenoid.xml
+grid_router_browsers: # Browser list usage selenoid
+  - name: "firefox"
+    defaultVersion: "54.0"
+    versions:
+      - "54.0"
+      - "53.0"
+      - "52.0"
+  - name: "chrome"
+    defaultVersion: "59.0"
+    versions:
+      - "59.0"
+      - "58.0"
+      - "57.0"
+  - name: "opera"
+    defaultVersion: "45.0"
+    versions:
+      - "45.0"
+      - "44.0"
+      - "43.0"
+```
 
 You can override collection browsers `grid_router_browsers` according to your needs.
 For example:
@@ -33,17 +53,14 @@ grid_router_browsers:
       defaultVersion: "54.0"
       versions:
         - "54.0"
-        - "53.0"
     - name: "chrome"
       defaultVersion: "59.0"
       versions:
         - "59.0"
-        - "58.0"
     - name: "opera"
       defaultVersion: "45.0"
       versions:
         - "45.0"
-        - "44.0"
 ```
 
 All supported browsers see [here](https://github.com/aerokube/selenoid#ready-to-use-browser-images).
