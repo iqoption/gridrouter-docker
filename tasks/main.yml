@@ -11,6 +11,7 @@
     url: "https://github.com/seleniumkit/sctl/releases/download/{{ grid_router_sctl_version }}/sctl_linux_amd64"
     dest: /usr/local/bin/sctl
     mode: 0755
+  changed_when: False
 
 - name: Grid Router | Create config dir
   file:
@@ -29,7 +30,7 @@
 
 - name: Grid Router | Setup quota password
   htpasswd:
-    path: "{{ grid_router_gr_path }}/users.htpasswd"
+    path: "{{ grid_router_path }}/users.htpasswd"
     name: "{{ grid_router_qouta_user }}"
     password: "{{ grid_router_qouta_password}}"
     mode: 0640
@@ -42,7 +43,7 @@
     network_mode: host
     state: started
     volumes:
-    - "{{ grid_router_gr_path }}:{{ grid_router_gr_path }}:ro"
+    - "{{ grid_router_path }}:{{ grid_router_path }}:ro"
     env:
       TZ: "{{ grid_router_time_zone }}"
       DOCKER_API_VERSION: "{{ grid_router_docker_api_version }}"
