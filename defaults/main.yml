@@ -11,6 +11,7 @@ grid_router_docker_api_version: 1.24 # Docker api version (for GridRouter)
 grid_router_host_list: group # Host list for selenoid.xml
 grid_router_region: region # Region for selenoid.xml
 grid_router_host_name: selenoid[01:10].example.com # Host selenoid for selenoid.xml
+grid_router_browser_count: 1 # number of browsers per host
 grid_router_browsers: # Browser list usage selenoid
   - name: "firefox"
     defaultVersion: "54.0"
