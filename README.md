@@ -87,10 +87,10 @@ Ggr is [using](http://aerokube.com/ggr/latest/#_creating_users_file) htpasswd fi
     grid_router_regions:
         - name: "region-1"
           hosts:
-          - name: 172.17.0.2
+          - name: 192.168.1.1
             port: 4444
             browser_count: 4
-          - name: 145.239.131.73
+          - name: 192.168.1.2
             port: 4445
             browser_count: 4            
             
