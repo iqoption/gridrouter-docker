@@ -22,8 +22,15 @@ grid_router_port: 4444 # GridRouter port
 grid_router_sctl_version: 1.2.0 # sctl version — https://github.com/seleniumkit/sctl/releases
 grid_router_docker_api_version: 1.24 # Docker api version (for GridRouter)
 grid_router_host_list: group # Host list for selenoid.xml
-grid_router_region: region # Region for selenoid.xml
-grid_router_host_name: selenoid[01:10].example.com # Host selenoid for selenoid.xml
+
+grid_router_regions: # Hosts list per region
+    - name: "region-1"
+      hosts:
+        - name: localhost
+          port: 4444
+          browser_count: 4
+
+
 grid_router_browsers: # Browser list usage selenoid
   - name: "firefox"
     defaultVersion: "54.0"
@@ -72,8 +79,29 @@ Ggr is [using](http://aerokube.com/ggr/latest/#_creating_users_file) htpasswd fi
 ```yaml
 ---
 - hosts: all
+  vars:
+    grid_router_path: "{{ ansible_env.HOME }}/grid-router"
+    grid_router_qouta_path: "{{ ansible_env.HOME }}/grid-router/quota"
+    grid_router_port: 4445
+    
+    grid_router_regions:
+        - name: "region-1"
+          hosts:
+          - name: 192.168.1.1
+            port: 4444
+            browser_count: 4
+          - name: 192.168.1.2
+            port: 4445
+            browser_count: 4            
+            
+    grid_router_browsers:
+        - name: "chrome"
+          defaultVersion: "62.0"
+          versions:
+            - "62.0"
+            - "63.0"
   roles:
-  - gridrouter
+    - gridrouter-docker
 ```
 
 ## Dependencies

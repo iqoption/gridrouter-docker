@@ -1,13 +1,17 @@
 {
-  "hosts": {
-    "{{ grid_router_host_list }}": {
-      "{{ grid_router_region }}": {
-        "{{ grid_router_host_name }}": {
-          "port": {{ grid_router_port }},
-          "count": {{ grid_router_browser_count }}
-        }
-      }
-    }
+	"hosts": {
+	"{{ grid_router_host_list }}": {
+	{% for region in grid_router_regions -%}
+	"{{ region.name }}": {
+		{% for host in region.hosts -%}
+		"{{ host.name }}": {
+			"port": {{ host.port }},
+			"count": {{ host.browser_count }}
+		}{%- if not loop.last -%},{%- endif -%}
+		{%- endfor %}
+	}
+	{%- endfor %}
+	}
   },
   "quota": {
     "selenoid": {
