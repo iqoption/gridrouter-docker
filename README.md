@@ -79,8 +79,29 @@ Ggr is [using](http://aerokube.com/ggr/latest/#_creating_users_file) htpasswd fi
 ```yaml
 ---
 - hosts: all
+  vars:
+    grid_router_path: "{{ ansible_env.HOME }}/grid-router"
+    grid_router_qouta_path: "{{ ansible_env.HOME }}/grid-router/quota"
+    grid_router_port: 4445
+    
+    grid_router_regions:
+        - name: "region-1"
+          hosts:
+          - name: 172.17.0.2
+            port: 4444
+            browser_count: 4
+          - name: 145.239.131.73
+            port: 4445
+            browser_count: 4            
+            
+    grid_router_browsers:
+        - name: "chrome"
+          defaultVersion: "62.0"
+          versions:
+            - "62.0"
+            - "63.0"
   roles:
-  - gridrouter
+    - gridrouter-docker
 ```
 
 ## Dependencies
