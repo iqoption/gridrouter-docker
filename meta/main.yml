@@ -3,7 +3,7 @@ galaxy_info:
   description: |
     Ansible role to manage and run the gridrouter docker container.
   company: Iqoption Ltd.
-  min_ansible_version: 2.1
+  min_ansible_version: 2.2
   platforms:
   - name: Ubuntu
     versions:
