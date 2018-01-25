@@ -24,12 +24,11 @@ grid_router_docker_api_version: 1.24 # Docker api version (for GridRouter)
 grid_router_host_list: group # Host list for selenoid.xml
 
 grid_router_regions: # Hosts list per region
-    - name: "region-1"
-      hosts:
-        - name: localhost
-          port: 4444
-          browser_count: 4
-
+  - name: "region-1"
+    hosts:
+      - name: localhost
+        port: 4444
+        browser_count: 4
 
 grid_router_browsers: # Browser list usage selenoid
   - name: "firefox"
@@ -56,18 +55,18 @@ You can override collection browsers `grid_router_browsers` according to your ne
 For example:
 ```yaml
 grid_router_browsers:
-    - name: "firefox"
-      defaultVersion: "54.0"
-      versions:
-        - "54.0"
-    - name: "chrome"
-      defaultVersion: "59.0"
-      versions:
-        - "59.0"
-    - name: "opera"
-      defaultVersion: "45.0"
-      versions:
-        - "45.0"
+  - name: "firefox"
+    defaultVersion: "54.0"
+    versions:
+      - "54.0"
+  - name: "chrome"
+    defaultVersion: "59.0"
+    versions:
+      - "59.0"
+  - name: "opera"
+    defaultVersion: "45.0"
+    versions:
+      - "45.0"
 ```
 
 All supported browsers see [here](https://github.com/aerokube/selenoid#ready-to-use-browser-images).
@@ -83,29 +82,28 @@ Ggr is [using](http://aerokube.com/ggr/latest/#_creating_users_file) htpasswd fi
     grid_router_path: "{{ ansible_env.HOME }}/grid-router"
     grid_router_qouta_path: "{{ ansible_env.HOME }}/grid-router/quota"
     grid_router_port: 4445
-    
+
     grid_router_regions:
-        - name: "region-1"
-          hosts:
-          - name: 192.168.1.1
-            port: 4444
-            browser_count: 4
-          - name: 192.168.1.2
-            port: 4445
-            browser_count: 4            
-            
+      - name: "region-1"
+        hosts:
+        - name: 192.168.1.1
+          port: 4444
+          browser_count: 4
+        - name: 192.168.1.2
+          port: 4445
+          browser_count: 4            
+
     grid_router_browsers:
-        - name: "chrome"
-          defaultVersion: "62.0"
-          versions:
-            - "62.0"
-            - "63.0"
+      - name: "chrome"
+        defaultVersion: "62.0"
+        versions:
+          - "62.0"
+          - "63.0"
   roles:
     - gridrouter-docker
 ```
 
 ## Dependencies
-
 None
 
 ## Contributing
