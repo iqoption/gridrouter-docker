@@ -1,8 +1,8 @@
 ---
 language: python
 python: "2.7"
-group: deprecated-2017Q4
 sudo: required
+group: deprecated-2017Q4
 dist: trusty
 services:
   - docker
@@ -13,10 +13,7 @@ before_install:
 install:
   - sudo pip install docker-py
   - sudo apt-get install -y sshpass software-properties-common python-software-properties
-  # - sudo apt-add-repository -y ppa:ansible/ansible
-  # - sudo apt-get update -qq
-  - sudo pip install ansible==2.2.0.0
-  # - sudo apt-get install -y ansible
+  - sudo pip install ansible
   - echo -e 'localhost ansible_connection=local' > tests/inventory
   - echo -e '[defaults]\nroles_path = ../\nhostfile = ./tests/inventory' > ansible.cfg
   - sudo rm /usr/bin/python && sudo ln -s /usr/bin/python2.7 /usr/bin/python
