@@ -11,11 +11,11 @@ grid_router_docker_api_version: 1.24 # Docker api version (for GridRouter)
 grid_router_host_list: group # Host list for selenoid.xml
 
 grid_router_regions: # Hosts list per region
-    - name: "region-1"
-      hosts:
-        - name: localhost
-          port: 4444
-          browser_count: 4
+  - name: "region-1"
+    hosts:
+      - name: localhost
+        port: 4444
+        browser_count: 4
 
 grid_router_browsers: # Browser list usage selenoid
   - name: "firefox"
