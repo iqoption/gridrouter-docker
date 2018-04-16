@@ -12,7 +12,7 @@ before_install:
  - sudo apt-get install -y libffi-dev libssl-dev
 
 install:
-  - sudo pip install docker-py
+  - sudo pip install urllib3 docker-py
   - sudo apt-get install -y sshpass software-properties-common python-software-properties
   - sudo pip install ansible
   - echo -e 'localhost ansible_connection=local' > tests/inventory
