@@ -40,4 +40,4 @@
       TZ: "{{ grid_router_time_zone }}"
     ports:
     - "{{ grid_router_port }}:{{ grid_router_port }}"
-    command: ["/usr/bin/ggr", "-listen", ":{{ grid_router_regions.name.hosts.port }}", "-quotaDir", "{{ grid_router_qouta_path }}", "-guests-allowed", "-guest-quota", "{{ grid_router_qouta_user }}"]
+    command: ["/usr/bin/ggr", "-listen", ":4444", "-quotaDir", "{{ grid_router_qouta_path }}", "-guests-allowed", "-guest-quota", "{{ grid_router_qouta_user }}"]
