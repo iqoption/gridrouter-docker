@@ -3,7 +3,7 @@
   pip:
     name: "{{ item.name }}"
   with_items:
-  - { name: docker-py }
+  - { name: docker }
 
 - name: Grid Router | Download sctl
   get_url:
