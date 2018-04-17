@@ -3,8 +3,7 @@
   pip:
     name: "{{ item.name }}"
   with_items:
-  - { name: docker-py }
-  - { name: passlib }
+  - { name: docker }
 
 - name: Grid Router | Download sctl
   get_url:
@@ -28,13 +27,6 @@
 - name: Grid Router | Generate quota file
   shell: sctl generate --inputFile "{{ grid_router_qouta_path }}/quota_template.json" --outputDirectory "{{ grid_router_qouta_path }}"
 
-- name: Grid Router | Setup quota password
-  htpasswd:
-    path: "{{ grid_router_path }}/users.htpasswd"
-    name: "{{ grid_router_qouta_user }}"
-    password: "{{ grid_router_qouta_password}}"
-    mode: 0640
-
 - name: Grid Router | Run Grid Router container
   docker_container:
     name: grid_router
@@ -46,6 +38,6 @@
     - "{{ grid_router_path }}:{{ grid_router_path }}:ro"
     env:
       TZ: "{{ grid_router_time_zone }}"
-      DOCKER_API_VERSION: "{{ grid_router_docker_api_version }}"
     ports:
     - "{{ grid_router_port }}:{{ grid_router_port }}"
+    command: ["/usr/bin/ggr", "-listen", ":4444", "-quotaDir", "{{ grid_router_qouta_path }}", "-guests-allowed", "-guest-quota", "{{ grid_router_qouta_user }}"]

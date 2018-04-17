@@ -2,7 +2,6 @@
 language: python
 python: "2.7"
 sudo: required
-group: deprecated-2017Q4
 dist: trusty
 services:
   - docker
@@ -11,7 +10,7 @@ before_install:
  - sudo apt-get update -qq
 
 install:
-  - sudo pip install docker-py
+  - sudo pip install docker
   - sudo apt-get install -y sshpass software-properties-common python-software-properties
   - sudo pip install ansible
   - echo -e 'localhost ansible_connection=local' > tests/inventory
@@ -27,6 +26,5 @@ script:
     | grep -q 'failed=0'
     && (echo 'Failed test: pass' && exit 0)
     || (echo 'Failed test: fail' && exit 1)
-
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
