@@ -2,6 +2,7 @@
 language: python
 python: "2.7"
 sudo: required
+group: deprecated-2017Q4
 dist: trusty
 services:
   - docker
@@ -26,6 +27,5 @@ script:
     | grep -q 'failed=0'
     && (echo 'Failed test: pass' && exit 0)
     || (echo 'Failed test: fail' && exit 1)
-
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
