@@ -24,7 +24,7 @@ grid_router_host_list: group # Host list for selenoid.xml
 grid_router_regions: # Hosts list per region
   - name: "region-1"
     hosts:
-      - name: localhost
+      - name: localhost[01:10].site.com # You can usage pattern [01:N]
         port: 4444
         browser_count: 5
 
@@ -35,12 +35,16 @@ grid_router_browsers: # Browser list usage selenoid
       - "59.0"
       - "58.0"
       - "57.0"
+      - "56.0"
+      - "55.0"
   - name: "chrome"
     defaultVersion: "65.0"
     versions:
       - "65.0"
       - "64.0"
       - "63.0"
+      - "62.0"
+      - "61.0"
   - name: "opera"
     defaultVersion: "52.0"
     versions:
@@ -69,8 +73,6 @@ grid_router_browsers:
 
 All supported browsers see [here](https://github.com/aerokube/selenoid#ready-to-use-browser-images).
 
-Ggr is [using](http://aerokube.com/ggr/latest/#_creating_users_file) htpasswd files to store authentication data. Passwords are stored in encrypted form.
-
 #### Example
 
 ```yaml
@@ -84,19 +86,18 @@ Ggr is [using](http://aerokube.com/ggr/latest/#_creating_users_file) htpasswd fi
     grid_router_regions:
       - name: "region-1"
         hosts:
-        - name: 192.168.1.1
+        - name: 192.168.1.[1:2]
           port: 4444
           browser_count: 4
-        - name: 192.168.1.2
-          port: 4445
-          browser_count: 4            
 
     grid_router_browsers:
       - name: "chrome"
-        defaultVersion: "62.0"
+        defaultVersion: "65.0"
         versions:
-          - "62.0"
+          - "65.0"
+          - "64.0"
           - "63.0"
+          - "62.0"
   roles:
     - gridrouter-docker
 ```
